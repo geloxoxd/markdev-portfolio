@@ -155,7 +155,7 @@ export const projects: Project[] = [
     id: 'markdev-portfolio',
     title: 'MarkDev Portfolio',
     category: 'Frontend',
-    status: 'Deployment ready',
+    status: 'Live',
     description:
       'An original monochrome portfolio with a portrait-led introduction, project stories, and a focused developer experience.',
     summary:
@@ -163,15 +163,18 @@ export const projects: Project[] = [
     technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Motion', 'React Router'],
     features: [
       'Responsive monochrome interface',
+      'Draggable suspended ID with a flexible strap and damped swing',
+      'Repeatable scroll reveals and an animated two-row text strip',
       'Individual project case-study routes',
       'Categorized technology showcase',
-      'Email and GitHub contact options',
+      'Gmail compose and social profile links in the footer',
       'Reduced-motion support',
     ],
     plannedFeatures: [],
     image: '/images/portfolio-preview.png',
     githubUrl: 'https://github.com/geloxoxd/markdev-portfolio',
+    liveUrl: 'https://markdev-portfolio-iota.vercel.app',
     evidenceNote:
-      'Built and tested locally. Public release is pending; the repository link is provided for the upcoming source release.',
+      'Deployed on Vercel with a public HTTPS entry point and source published on GitHub. Local checks cover TypeScript, linting, automated tests, and the production build.',
   },
 ]

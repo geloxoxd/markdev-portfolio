@@ -1,0 +1,16 @@
+.git/
+.agents/
+.codex/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+dist-ssr/
+tmp/
+output/
+test-results/
+playwright-report/
+coverage/
+*.log
+*.tsbuildinfo
