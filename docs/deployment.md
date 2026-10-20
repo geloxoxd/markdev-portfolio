@@ -2,6 +2,8 @@
 
 Prepared for a static React/Vite portfolio with client-side project routes. Email, Gmail compose, GitHub, and social links require no portfolio backend. The owner authorized pushing the dedicated repository and deploying the portfolio on October 20, 2026. Final host and live-verification details are maintained in `docs/progress.md`; a custom domain is optional.
 
+Current production URL: [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). The Git-triggered production deployment and full public-site checks passed. The project uses the `geloxoxd` Hobby scope; no paid upgrade or custom domain was required.
+
 Official documentation was checked on October 19, 2026. Hosting plans and limits can change; confirm account terms before enabling a plan or publishing.
 
 ## Hosting comparison
@@ -15,21 +17,23 @@ Official documentation was checked on October 19, 2026. Hosting plans and limits
 
 Sources: [Vercel Vite support](https://vercel.com/docs/frameworks/frontend/vite), [Vercel Hobby terms](https://vercel.com/docs/plans/hobby), [Netlify SPA support](https://docs.netlify.com/build/configure-builds/javascript-spas/), [Netlify credit plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/), [Cloudflare React setup](https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-site/), [Cloudflare SPA behavior](https://developers.cloudflare.com/pages/configuration/serving-pages/), and [Vite's GitHub Pages guide](https://vite.dev/guide/static-deploy.html#github-pages).
 
-Recommendation: use Vercel for this personal student portfolio if its Hobby eligibility matches the intended use. It provides a short setup path for the existing build and clean project routes. Cloudflare Pages is a practical alternative for this static site. Hosting comparisons describe available options; the selected release host must be recorded after account access and deployment are verified.
+Vercel is selected for this personal student portfolio. Its first production deployment is verified ready. Cloudflare Pages remains an alternative for this static site. The comparisons describe other options and do not imply deployments to those providers.
 
 ## Shared build settings
 
-| Setting                  | Value                        |
-| ------------------------ | ---------------------------- |
-| Repository               | `geloxoxd/markdev-portfolio` |
-| Production branch        | `main`                       |
-| Root directory           | Repository root              |
-| Framework                | Vite / React                 |
-| Install command          | `npm ci`                     |
-| Build command            | `npm run build`              |
-| Publish/output directory | `dist`                       |
+| Setting                  | Value                                       |
+| ------------------------ | ------------------------------------------- |
+| Repository               | `geloxoxd/markdev-portfolio`                |
+| Production branch        | `main`                                      |
+| Root directory           | Repository root                             |
+| Framework                | Vite / React                                |
+| Install command          | `npm ci`                                    |
+| Build command            | `npm run build`                             |
+| Publish/output directory | `dist`                                      |
+| Node.js                  | `24.x`                                      |
+| Production origin        | `https://markdev-portfolio-iota.vercel.app` |
 
-Use Node.js 22.12 or newer, compatible with the project's declared engine and lockfile. Do not deploy `node_modules`, source environment secrets, or the developer's absolute local file paths.
+Use Node.js 24.x, matching the project's declared engine, lockfile, and production runtime. `vercel.json` uses `npm ci` so the remote build follows the lockfile. `.vercelignore` excludes local-only files from CLI uploads. Do not deploy `node_modules`, source environment secrets, or the developer's absolute local file paths.
 
 ## Before first publication
 
@@ -42,11 +46,15 @@ Use Node.js 22.12 or newer, compatible with the project's declared engine and lo
 
 ## Vercel
 
-For the authorized release:
+The project is deployed under the `geloxoxd` scope, with public production alias `https://markdev-portfolio-iota.vercel.app`. Vercel CLI 64.7.0 is authenticated. `SITE_URL` is configured for Production and Preview builds with the production origin.
 
-1. Sign in to Vercel with the correct GitHub account and import `geloxoxd/markdev-portfolio`.
+The Vercel GitHub App is authorized for this portfolio repository. The native connection and production deployment triggered by the functional release commit are verified. Confirm the matching build and public alias after every future push.
+
+For setup or reconnection:
+
+1. Sign in to the existing Vercel account and project. Install or authorize the Vercel GitHub App for `geloxoxd/markdev-portfolio`, then connect that repository to the existing project rather than creating a duplicate.
 2. Select the Vite framework preset and confirm the shared settings above. The repository's `vercel.json` declares the build, output directory, and SPA rewrite recommended by the official Vite guide.
-3. Set `SITE_URL` to the intended HTTPS origin in the build environment. Do not add server secrets as `VITE_` variables.
+3. Keep `SITE_URL=https://markdev-portfolio-iota.vercel.app` in Production and Preview build environments. Do not add server secrets as `VITE_` variables.
 4. Review the plan and project visibility, then deploy.
 5. Verify the generated HTTPS address before reporting a live URL. Test a direct project-page load and browser refresh, alongside the profile image, CSS/JS assets, and resume download.
 
@@ -76,7 +84,7 @@ The example address describes GitHub's URL convention; it is not a verified live
 
 ## Environment variables
 
-There is no backend credential requirement for mailto and copy-email contact controls. Optional `SITE_URL` is a public build-time setting for the final portfolio origin. Locally, set `$env:SITE_URL = 'https://your-confirmed-domain'` in PowerShell before `npm run build`; replace the sample value with the actual origin. An ignored `.env.local` file is also supported; `.env.example` documents the setting. Use an HTTPS origin without a path, query, or fragment. On a host, add `SITE_URL` in the project's build environment settings. Without a confirmed origin, the build deliberately omits canonical URLs and a final-domain sitemap rather than inventing an address.
+There is no backend credential requirement for mailto and copy-email contact controls. `SITE_URL` is a public build-time setting, configured as `https://markdev-portfolio-iota.vercel.app` for Vercel Production and Preview. Locally, set `$env:SITE_URL = 'https://markdev-portfolio-iota.vercel.app'` in PowerShell before `npm run build`. An ignored `.env.local` file is also supported; `.env.example` documents the setting. Use an HTTPS origin without a path, query, or fragment. Builds without a confirmed origin deliberately omit canonical URLs and a final-domain sitemap rather than inventing an address.
 
 Frontend `VITE_` values are included in browser output and must never contain passwords, personal access tokens, or database URLs. Environment changes require a new build. See [Vite environment variables](https://vite.dev/guide/env-and-mode.html).
 
@@ -86,8 +94,14 @@ After domain ownership is confirmed, add the domain in the chosen provider and f
 
 ## Updating and redeploying
 
-Edit shared content or components, run local checks, review the diff, and make a meaningful commit. Once Git-based deployment is connected, an approved push to the configured production branch can trigger a production deployment; other branches can produce previews according to provider settings. Verify the resulting build and URL after every release. Use the provider's deployment history for an approved rollback rather than rewriting Git history.
+Use Node.js 24.x. Edit shared content or components, run local checks, review the diff, and make a meaningful commit. Push to the configured `main` branch, then check Vercel for its deployment of that commit. The native repository connection and automatic production deployment from `main` have been verified. For an explicit CLI deployment from the linked local project:
+
+```powershell
+npx vercel@64.7.0 --prod
+```
+
+The ignored `.vercel/` directory records the local project link. If using a new checkout, authenticate and link to the existing `markdev-portfolio` project in the `geloxoxd` scope before production deployment. Keep `SITE_URL` configured in the Vercel project. Pushes to `main` are configured to trigger production builds; other branches can produce previews according to project settings. Verify the resulting build, public alias, direct project routes, assets, resume, and SEO files after every release. Use the provider's deployment history for a rollback rather than rewriting Git history.
 
 ## Deployment status
 
-The owner authorized GitHub push and production deployment on October 20, 2026. Release preparation includes verifying the dedicated remote, checking the final source, configuring the actual production origin, and executing local checks. Record the resulting push and deployment in `docs/progress.md` only when their external state has been verified. A successful local build is not evidence that the portfolio is deployed.
+The owner authorized GitHub push and production deployment on October 20, 2026. The functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. Vercel reported the production deployment ready, and unauthenticated public checks passed at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). The production configuration is Vite, Node.js 24.x, `npm ci`, `npm run build`, and `dist`. `SITE_URL` is configured for Production and Preview. Public checks passed for the home page, both project routes and direct refreshes, not-found recovery, desktop/tablet/mobile layouts at 1440/768/390px, images and fonts, the public PDF, approved footer destinations, route-specific canonical/Open Graph metadata, robots.txt, and sitemap.xml. No browser errors, missing assets, or horizontal overflow were observed at those widths. See `docs/progress.md` and `docs/qa-results.md`.

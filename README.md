@@ -4,11 +4,13 @@ An original monochrome developer portfolio for Mark Angelo Dela Cruz, a third-ye
 
 The portfolio is independent of ClosetIQ. It does not modify, run, or require the ClosetIQ codebase.
 
+Live portfolio: [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). The production site and its public routes, media, responsive layouts, and SEO files have been verified over HTTPS.
+
 The approved interface includes a draggable suspended ID with a post-intro drop and settling motion, a frosted-glass navbar hover, repeatable scroll reveals, a circular About portrait, and two opposing text marquees with white asterisks. Motion respects reduced-motion preferences. The footer includes Gmail composition and the owner's Instagram, TikTok, and Facebook profiles with hover and keyboard-focus feedback.
 
 ## Local development
 
-The existing local workspace is named `markdev portflio` (the folder spelling is intentional here). Open a terminal in this directory with Node.js 22.12 or newer, as declared by the project.
+The existing local workspace is named `markdev portflio` (the folder spelling is intentional here). Open a terminal in this directory with Node.js 24.x, matching the project engine and production runtime.
 
 ```powershell
 npm ci
@@ -65,15 +67,17 @@ At minimum, verify TypeScript, linting, the production build, real navigation de
 
 ## GitHub and deployment
 
-The dedicated source repository is [geloxoxd/markdev-portfolio](https://github.com/geloxoxd/markdev-portfolio), with `main` as the production branch. The owner authorized the GitHub push and production deployment on October 20, 2026. Release preparation is underway; the final commit, host, live address, and verification result belong in [the progress record](docs/progress.md). Check `git status`, `git log -1`, and `git remote -v` for the current local state.
+The public source repository is [geloxoxd/markdev-portfolio](https://github.com/geloxoxd/markdev-portfolio), with `main` as the production branch. The owner authorized push and production deployment on October 20, 2026. The functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. Vercel reported the production deployment ready, and unauthenticated public checks passed at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app).
+
+The Vercel GitHub App is authorized for this portfolio repository. Automatic deployment from a push to `main` has been verified. Future updates should be checked, committed, and pushed to `main`; confirm Vercel reports the matching commit ready and verify the public website. See [the progress record](docs/progress.md).
 
 Vercel and Netlify build/routing configurations are included. [Deployment instructions](docs/deployment.md) compare Vercel, Netlify, Cloudflare Pages, and GitHub Pages and explain the remaining setup.
 
-A live portfolio address is recorded only after HTTPS verification; no custom domain is assumed. ClosetIQ's public project address is [closet-iq.onrender.com](https://closet-iq.onrender.com); its source repository is private, so no public repository button is implied. Its audited frontend uses CSS, rather than the Tailwind stack initially reported. Project source review does not establish that all authenticated production workflows have been tested.
+No custom domain is configured. ClosetIQ's public project address is [closet-iq.onrender.com](https://closet-iq.onrender.com); its source repository is private, so no public repository button is implied. Its audited frontend uses CSS, rather than the Tailwind stack initially reported. Project source review does not establish that all authenticated production workflows have been tested.
 
 ## Environment variables
 
-No secret or backend credentials are required for the contact options. Optional `SITE_URL` sets the final public origin for generated SEO files. See `.env.example` and [deployment instructions](docs/deployment.md) before a production release. Environment files and local deployment metadata are excluded by `.gitignore`. Any variable whose name starts with `VITE_` is public browser configuration, not a place to store secrets. See [Vite environment documentation](https://vite.dev/guide/env-and-mode.html).
+No secret or backend credentials are required for the contact options. `SITE_URL=https://markdev-portfolio-iota.vercel.app` is configured for Vercel Production and Preview builds to generate SEO URLs using the public production origin. For local release builds, set the same value in the shell or an ignored `.env.local` file. See `.env.example` and [deployment instructions](docs/deployment.md). Environment files and local deployment metadata are excluded by `.gitignore`; `.vercelignore` also excludes local-only files from CLI uploads. Any variable whose name starts with `VITE_` is public browser configuration, not a place to store secrets. See [Vite environment documentation](https://vite.dev/guide/env-and-mode.html).
 
 ## Content accuracy
 
