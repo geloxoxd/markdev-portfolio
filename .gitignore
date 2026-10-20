@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Production builds, coverage, and tool caches
+dist/
+dist-ssr/
+coverage/
+test-results/
+playwright-report/
+tmp/
+output/
+.vite/
+*.tsbuildinfo
+
+# Environment secrets; sanitized examples may be tracked
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Logs
+logs/
+*.log
+
+# Local deployment metadata
+.vercel/
+.netlify/
+.wrangler/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

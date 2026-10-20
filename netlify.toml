@@ -1,0 +1,5 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# The SPA fallback is maintained in public/_redirects and copied by Vite.
