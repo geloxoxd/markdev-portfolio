@@ -1,5 +1,11 @@
 # Editing Portfolio Content
 
+## Introduction timing
+
+The approved Soft Aperture intro is implemented in `src/components/Introduction.tsx`. `INTRO_DURATION_MS` is set to `4000`; the stylesheet uses that shared duration with percentage-based keyframes. Keep the complete sequence within the approved three-to-five-second range, and preserve the animation-end callback that releases the suspended ID.
+
+The introduction plays once per browser-tab session and is omitted for reduced motion or unavailable session storage. To review it again, use a fresh private/incognito window, or remove the `markdev-introduced` session-storage entry in browser developer tools. Skip and Escape must remain available.
+
 ## Personal information
 
 Use `src/data/portfolio.ts` as the content source. Keep the same TypeScript structure when editing text, links, skills, experience, and project entries. Do not put personal content into multiple components when one shared data entry can supply it.

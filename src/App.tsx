@@ -1,16 +1,10 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
-import {
-  AnimatePresence,
-  MotionConfig,
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-} from 'motion/react'
+import { MotionConfig, motion, useReducedMotion, useScroll, useSpring } from 'motion/react'
 import { ArrowUp, ArrowUpRight, Command, Mail, Menu, Search, X } from 'lucide-react'
 import Github from './components/GithubIcon'
 import SocialIcon from './components/SocialIcon'
+import Introduction from './components/Introduction'
 import { profile, socialLinks } from './data/portfolio'
 import HomePage from './pages/HomePage'
 
@@ -36,69 +30,6 @@ function RouteEffects() {
     return () => cancelAnimationFrame(frame)
   }, [pathname, hash])
   return null
-}
-
-function Introduction({ onComplete }: { onComplete: () => void }) {
-  const [visible, setVisible] = useState(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
-    try {
-      return !sessionStorage.getItem('markdev-introduced')
-    } catch {
-      return false
-    }
-  })
-  const shownInitially = useRef(visible)
-  useEffect(() => {
-    if (!shownInitially.current) onComplete()
-  }, [onComplete])
-  useEffect(() => {
-    if (!visible) return
-    const timer = window.setTimeout(() => {
-      setVisible(false)
-      try {
-        sessionStorage.setItem('markdev-introduced', 'true')
-      } catch {
-        /* Storage is optional. */
-      }
-    }, 1150)
-    return () => window.clearTimeout(timer)
-  }, [visible])
-  function dismiss() {
-    setVisible(false)
-    try {
-      sessionStorage.setItem('markdev-introduced', 'true')
-    } catch {
-      /* Storage is optional. */
-    }
-  }
-  return (
-    <AnimatePresence onExitComplete={onComplete}>
-      {visible && (
-        <motion.div
-          className="introduction"
-          key="intro"
-          exit={{ opacity: 0, y: '-8%' }}
-          transition={{ duration: 0.35 }}
-        >
-          <span className="intro-index">PERSONAL PORTFOLIO / {new Date().getFullYear()}</span>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <p className="intro-wordmark">
-              mark<span>.dev</span>
-              <sup>↗</sup>
-            </p>
-            <p className="intro-caption">A little curiosity. A lot of possibilities.</p>
-          </motion.div>
-          <button onClick={dismiss} className="intro-skip">
-            Skip introduction <ArrowUpRight size={15} />
-          </button>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
 }
 
 function Header({ onCommand }: { onCommand: () => void }) {

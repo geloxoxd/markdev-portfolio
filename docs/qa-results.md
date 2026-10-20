@@ -1,8 +1,22 @@
 # Quality Verification
 
-Release verified on October 20, 2026. The functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. Vercel reported the production deployment ready, and unauthenticated public checks passed at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). Local checks and final public verification passed.
+Initial release verified on October 20, 2026. The functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. Vercel reported the production deployment ready, and unauthenticated public checks passed at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). The later approved Soft Aperture update is covered separately below.
 
-## Automated results
+## Soft Aperture update — October 20, 2026
+
+The owner selected Soft Aperture after reviewing three local animation concepts and requested three to five seconds. The implemented timeline lasts four seconds, with a 4.25-second safety timeout for interrupted animation events. The circular opening reveals the existing page; ID readiness changes only after the overlay is removed. No new dependency was installed.
+
+Executed checks passed:
+
+- `npm run typecheck` and `npm run lint`.
+- `npm test`: 18 unit/integration tests.
+- Production `npm run build` with the confirmed `SITE_URL`, including metadata and built-asset checks.
+- All 12 existing browser checks for navigation, projects, contact, layouts, errors, and accessibility.
+- `npm run test:e2e -- tests/e2e/introduction.spec.ts`: eight focused checks across desktop and mobile.
+
+The focused tests measure mounted-to-removed intro duration within 3.7–5 seconds, reject premature ID readiness, check keyboard Skip/Escape and focus, session persistence, startup and live reduced motion, storage failure, and wordmark/viewport fit. Intro contrast is scanned at a paused readable hold state so the accessibility analyzer cannot straddle a fading transition; no accessibility rule is disabled. Desktop and mobile hold-state screenshots were inspected. These checks use installed Chromium, not physical mobile hardware or Safari/Firefox.
+
+## Initial release automated results
 
 | Check                                                      | Recorded result                                                                                    |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |

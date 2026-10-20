@@ -6,7 +6,7 @@ The portfolio is independent of ClosetIQ. It does not modify, run, or require th
 
 Live portfolio: [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). The production site and its public routes, media, responsive layouts, and SEO files have been verified over HTTPS.
 
-The approved interface includes a draggable suspended ID with a post-intro drop and settling motion, a frosted-glass navbar hover, repeatable scroll reveals, a circular About portrait, and two opposing text marquees with white asterisks. Motion respects reduced-motion preferences. The footer includes Gmail composition and the owner's Instagram, TikTok, and Facebook profiles with hover and keyboard-focus feedback.
+The approved interface includes a four-second Soft Aperture introduction, a draggable suspended ID with a post-intro drop and settling motion, a frosted-glass navbar hover, repeatable scroll reveals, a circular About portrait, and two opposing text marquees with white asterisks. Motion respects reduced-motion preferences. The footer includes Gmail composition and the owner's Instagram, TikTok, and Facebook profiles with hover and keyboard-focus feedback.
 
 ## Local development
 

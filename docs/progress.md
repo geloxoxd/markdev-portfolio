@@ -2,9 +2,11 @@
 
 ## Current state — October 20, 2026
 
-The approved monochrome portfolio and requested interactions are implemented and published. The functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. Vercel reported the production deployment ready, and unauthenticated public checks passed at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app).
+The approved monochrome portfolio is published at [markdev-portfolio-iota.vercel.app](https://markdev-portfolio-iota.vercel.app). Its initial functional release, commit `b9425c8579ac32ab1e7ce9876afbd61fe82cf6e0`, was pushed to `main` and deployed automatically by the connected Vercel GitHub integration. The owner subsequently selected the Soft Aperture intro concept and authorized a three-to-five-second implementation, GitHub push, and deployment update. The implemented timeline is four seconds. GitHub and Vercel history identify each subsequent release.
 
-Local release checks passed: TypeScript, linting, formatting, production build and asset checks, 18 unit/integration tests, and 12 desktop/mobile browser tests. The final-domain production build and six public verification groups also passed. See `docs/qa-results.md` for evidence scope and practical limits.
+Local Soft Aperture checks passed: TypeScript, linting, production build and asset checks, 18 unit/integration tests, all 12 existing desktop/mobile browser checks, and eight focused introduction checks. The initial final-domain production build and six public verification groups also passed. See `docs/qa-results.md` for evidence scope and practical limits.
+
+## Initial production release evidence
 
 | Release item                                   | State                                                                                                                                          |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -93,3 +95,15 @@ Local release checks passed: TypeScript, linting, formatting, production build a
 - [x] Update release status, functional source commit, and final check results after verification.
 
 The portfolio remains independent of ClosetIQ. No ClosetIQ files are part of this release. Its authenticated production workflows were not exercised; its case study distinguishes source-reviewed features from the publicly verified entry page. No custom domain is assumed.
+
+## 7. Approved Soft Aperture introduction
+
+- [x] Present three animation concepts and receive explicit approval for Soft Aperture.
+- [x] Preserve the previous committed version and save an additional ignored local checkpoint.
+- [x] Implement a four-second soft-focus wordmark and expanding circular page reveal.
+- [x] Trigger the existing ID drop only after the introduction is removed.
+- [x] Preserve Skip, session-aware entry, keyboard access, and startup/live reduced-motion support.
+- [x] Verify timing, session persistence, unavailable storage, keyboard focus, and contrast on desktop and mobile.
+- [x] Pass TypeScript, lint, production build, 18 unit/integration checks, 12 existing browser checks, and eight focused intro checks.
+
+The owner authorized pushing and deploying this update. Publication follows the existing `main`-branch Vercel integration; verify the matching commit and public HTTPS page for each release.
